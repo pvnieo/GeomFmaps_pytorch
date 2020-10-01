@@ -1,0 +1,6 @@
+torch
+omegaconf
+torch-points3d
+tqdm
+numpy
+scipy

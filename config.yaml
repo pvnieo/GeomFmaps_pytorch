@@ -1,0 +1,54 @@
+dataroot: /path/to/dataset/folder/
+
+neig: 30
+n_train: 80  # number of shapes used in training
+max_train: 100 # max number of shapes used by the model (train - test)
+
+
+pre_transforms:
+  - transform: GridSampling3D
+    params:
+      size: 0.02
+train_transforms:
+  - transform: Random3AxisRotation
+    params:
+      apply_rotation: True
+      rot_x: 0
+      rot_y: 360
+      rot_z: 0
+  - transform: RandomNoise
+    params:
+      sigma: 0.01
+      clip: 0.05
+  - transform: RandomScaleAnisotropic
+    params:
+      scales: [0.9,1.1]
+  - transform: AddOnes
+  - transform: AddFeatsByKeys
+    params:
+      list_add_to_x: [True]
+      feat_names: ["ones"]
+      delete_feats: [True]
+test_transforms:
+  - transform: AddOnes
+  - transform: AddFeatsByKeys
+    params:
+      list_add_to_x: [True]
+      feat_names: ["ones"]
+      delete_feats: [True]
+
+# model params
+lambda_: 1e-3
+in_grid_size: 0.02
+n_feat: 128
+
+# general
+no_cuda: False
+batch_size: 8
+n_cpu: 8
+n_epochs: 20
+lr: 1e-3
+checkpoint_interval: 5
+log_interval: 20
+savedir: path/to/savedir/
+evaldir: path/to/evaldir/
