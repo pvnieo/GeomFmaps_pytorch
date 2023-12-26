@@ -1,5 +1,7 @@
 [![report](https://img.shields.io/badge/arxiv-report-green)](https://arxiv.org/pdf/2003.14286.pdf)
 
+:warning: :rotating_light: this code base is no longer maintained :confused:
+
 # GeomFmaps-pytorch
 A minimalist pytorch implementation of: "Deep Geometric Functional Maps: Robust Feature Learning for Shape Correspondence" [[1]](#bookmark-references), appeared in [CVPR 2020](http://cvpr2020.thecvf.com/).
 
